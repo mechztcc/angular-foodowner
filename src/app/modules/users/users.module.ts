@@ -7,6 +7,7 @@ import { CardCreateAccountComponent } from './components/card-create-account/car
 import { CardLoginComponent } from './components/card-login/card-login.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     CommonModule,
     UsersRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
 
   ]
 })

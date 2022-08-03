@@ -2,42 +2,56 @@
   <div class="col-md-6 offset-md-3">
     <div class="card shadow-lg">
       <div class="card-header text-center">
-        <h2>Login</h2>
+        <h2>
+          <b>Login</b>
+        </h2>
       </div>
       <div class="card-body">
-        <form>
-          <div class="col-md-10 offset-md-1">
-              <div class="form-group">
-                <label for="email">
-                  <b>Email</b>
-                </label>
-                <input type="email" class="form-control" />
-              </div>
-            </div>
+        <form [formGroup]="form" (ngSubmit)="validateForm()" >
           <div class="col-md-10 offset-md-1">
             <div class="form-group">
               <label for="email">
-                <b>Senha</b>
+                <b>Email</b>
+                <i class="fas fa-check-circle text-primary ml-2" *ngIf="form.controls['email'].dirty && form.controls['email'].valid"></i>
+                <i class="fas fa-exclamation-circle text-warning ml-2" *ngIf="form.controls['email'].dirty && form.controls['email'].invalid"></i>
               </label>
-              <input type="email" class="form-control" />
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+              />
             </div>
           </div>
           <div class="col-md-10 offset-md-1">
-            <button class="btn btn-primary my-2 w-100">
+            <div class="form-group">
+              <label for="password">
+                <b>Senha</b>
+                <i class="fas fa-check-circle text-primary ml-2" *ngIf="form.controls['password'].dirty && form.controls['password'].valid"></i>
+                <i class="fas fa-exclamation-circle text-warning ml-2" *ngIf="form.controls['password'].dirty && form.controls['password'].invalid"></i>
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+              />
+            </div>
+          </div>
+          <div class="col-md-10 offset-md-1">
+            <button class="btn btn-primary my-2 w-100" type="submit">
               Entrar
               <i class="ni ni-send ml-2" *ngIf="!isLoading"></i>
               <i class="fas fa-spinner" *ngIf="isLoading"></i>
             </button>
           </div>
-          
         </form>
       </div>
       <div class="card-footer">
         <div class="col-md-10 offset-md-1 text-center">
           <span>Esqueci minha senha</span>
-          <span routerLink="/create-account" class="mx-5">Sou novo por aqui</span>
+          <span routerLink="/create-account" class="mx-5"
+            >Sou novo por aqui</span
+          >
         </div>
-        
       </div>
     </div>
   </div>

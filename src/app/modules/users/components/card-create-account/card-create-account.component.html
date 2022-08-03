@@ -7,30 +7,46 @@
         </h2>
       </div>
       <div class="card-body">
-        <form>
+        <form [formGroup]="form" (ngSubmit)="validateForm()">
           <div class="row">
             <div class="col-md-10 offset-md-1">
               <div class="form-group">
-                <label for="email">Nome completo</label>
-                <input type="email" class="form-control" />
+                <label for="name">
+                  <b>Nome completo</b>
+                  <i class="fas fa-check-circle text-primary ml-2" *ngIf="form.controls['name'].dirty && form.controls['name'].valid"></i>
+                  <i class="fas fa-exclamation-circle text-warning ml-2" *ngIf="form.controls['name'].dirty && form.controls['name'].invalid"></i>
+                </label>
+                <input type="text" class="form-control" formControlName="name"/>
               </div>
             </div>
             <div class="col-md-10 offset-md-1">
               <div class="form-group">
-                <label for="email">Seu email</label>
-                <input type="email" class="form-control" />
+                <label for="email">
+                  <b>Seu email</b>
+                  <i class="fas fa-check-circle text-primary ml-2" *ngIf="form.controls['email'].dirty && form.controls['email'].valid"></i>
+                  <i class="fas fa-exclamation-circle text-warning ml-2" *ngIf="form.controls['email'].dirty && form.controls['email'].invalid"></i>
+                </label>
+                <input type="email" class="form-control" formControlName="email"/>
               </div>
             </div>
             <div class="col-md-10 offset-md-1">
               <div class="form-group">
-                <label for="email">Senha</label>
-                <input type="email" class="form-control" />
+                <label for="password">
+                  <b>Senha</b>
+                  <i class="fas fa-check-circle text-primary ml-2" *ngIf="form.controls['password'].dirty && form.controls['password'].valid"></i>
+                  <i class="fas fa-exclamation-circle text-warning ml-2" *ngIf="form.controls['password'].dirty && form.controls['password'].invalid"></i>
+                </label>
+                <input type="password" class="form-control" formControlName="password"/>
               </div>
             </div>
             <div class="col-md-10 offset-md-1">
               <div class="form-group">
-                <label for="email">Confirme a senha</label>
-                <input type="email" class="form-control" />
+                <label for="email">
+                  <b>Confirme a senha</b>
+                  <i class="fas fa-check-circle text-primary ml-2" *ngIf="form.controls['confirmPass'].dirty && form.controls['confirmPass'].valid"></i>
+                  <i class="fas fa-exclamation-circle text-warning ml-2" *ngIf="form.controls['confirmPass'].dirty && form.controls['confirmPass'].invalid"></i>
+                </label>
+                <input type="email" class="form-control" formControlName="confirmPass"/>
               </div>
             </div>
             <div class="col-md-10 offset-md-1 text-center my-2">

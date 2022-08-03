@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Login } from "../../shared/types/login.interface";
+import { User } from "../../shared/types/user.interface";
 
 @Component({
   selector: "card-login",
@@ -9,6 +11,10 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 export class CardLoginComponent implements OnInit {
   isLoading: boolean = false;
   form: FormGroup;
+  login: Login;
+
+  errors: boolean[] = [];
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -17,8 +23,18 @@ export class CardLoginComponent implements OnInit {
 
   initForm() {
     this.form = this.fb.group({
-      email: [""],
-      password: [""],
+      email: ["", Validators.compose([Validators.required, Validators.email])],
+      password: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
     });
+  }
+
+  validateForm() {
+    if (!this.form.invalid) {
+      this.login = {
+        email: this.form.controls["email"].value,
+        password: this.form.controls["password"].value,
+      };
+      console.log(this.login);
+    }
   }
 }

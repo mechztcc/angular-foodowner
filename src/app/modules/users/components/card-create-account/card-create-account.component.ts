@@ -21,10 +21,10 @@ export class CardCreateAccountComponent implements OnInit {
 
   initForm() {
     this.form = this.fb.group({
-      name: [""],
-      email: [""],
-      password: [""],
-      confirmPass: [""],
+      name: ["", Validators.required],
+      email: ["", Validators.compose([Validators.required, Validators.email])],
+      password: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
+      confirmPass: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
     });
   }
 
@@ -37,6 +37,8 @@ export class CardCreateAccountComponent implements OnInit {
       email: this.form.controls["email"].value,
       password: this.form.controls["password"].value,
     };
+    console.log(this.user);
+    
   }
 
   createAccount() {

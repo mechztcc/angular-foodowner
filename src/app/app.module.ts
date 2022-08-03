@@ -16,6 +16,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { UsersModule } from './modules/users/users.module';
+import { CoreModule } from './modules/core/core.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UsersModule } from './modules/users/users.module';
     RouterModule,
     AppRoutingModule,
     HomeModule,
-    UsersModule
+    UsersModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

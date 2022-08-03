@@ -6,6 +6,7 @@ import { CreateAccountComponent } from './pages/create-account/create-account.co
 import { CardCreateAccountComponent } from './components/card-create-account/card-create-account.component';
 import { CardLoginComponent } from './components/card-login/card-login.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { LoginComponent } from './pages/login/login.component';
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    HttpClientModule,
+
   ]
 })
 export class UsersModule { }

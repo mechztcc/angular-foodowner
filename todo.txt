@@ -1,0 +1,10 @@
+
+-- Users --
+[ ] Create account
+[ ] Login
+
+-- Stores --
+[ ] Create Store
+
+-- Address --
+[ ] Create Address

@@ -3,6 +3,6 @@ export interface User {
   name?: string;
   email?: string;
   password?: string;
-  created_at: string | Date;
-  udpated_at: string | Date;
+  created_at?: string | Date;
+  udpated_at?: string | Date;
 }

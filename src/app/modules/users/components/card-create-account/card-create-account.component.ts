@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UsersService } from "../../shared/services/users.service";
+import { User } from "../../shared/types/user.interface";
 
 @Component({
   selector: "card-create-account",
@@ -8,17 +10,42 @@ import { UsersService } from "../../shared/services/users.service";
 })
 export class CardCreateAccountComponent implements OnInit {
   isLoading: boolean = false;
-  constructor(private usersService: UsersService) {}
+  form: FormGroup;
+  user: User;
 
-  ngOnInit(): void {}
+  constructor(private usersService: UsersService, private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm() {
+    this.form = this.fb.group({
+      name: [""],
+      email: [""],
+      password: [""],
+      confirmPass: [""],
+    });
+  }
+
+  validateForm() {
+    if (this.form.invalid) {
+    }
+
+    this.user = {
+      name: this.form.controls["name"].value,
+      email: this.form.controls["email"].value,
+      password: this.form.controls["password"].value,
+    };
+  }
 
   createAccount() {
-    // this.isLoading = true;
-    // this.usersService
-    //   .createAccount()
-    //   .subscribe((data: any) => {})
-    //   .add(() => {
-    //     this.isLoading = false;
-    //   });
+    this.isLoading = true;
+    this.usersService
+      .createAccount(this.user)
+      .subscribe((data: any) => {})
+      .add(() => {
+        this.isLoading = false;
+      });
   }
 }

@@ -1,32 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app.routing';
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule } from "@angular/router";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { AppRoutingModule } from "./app.routing";
 
-import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
-import { LandingComponent } from './landing/landing.component';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { AppComponent } from "./app.component";
+import { FooterComponent } from "./shared/footer/footer.component";
+import { NavbarComponent } from "./shared/navbar/navbar.component";
 
-import { HomeModule } from './home/home.module';
-import { LoginComponent } from './login/login.component';
-import { UsersModule } from './modules/users/users.module';
-import { CoreModule } from './modules/core/core.module';
+import { CoreModule } from "./modules/core/core.module";
+import { UsersModule } from "./modules/users/users.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
-    LandingComponent,
-    ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,11 +24,10 @@ import { CoreModule } from './modules/core/core.module';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    HomeModule,
     UsersModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

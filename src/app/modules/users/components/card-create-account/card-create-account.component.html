@@ -15,6 +15,7 @@
                   <b>Nome completo</b>
                   <i class="fas fa-check-circle text-primary ml-2" *ngIf="form.controls['name'].dirty && form.controls['name'].valid"></i>
                   <i class="fas fa-exclamation-circle text-warning ml-2" *ngIf="form.controls['name'].dirty && form.controls['name'].invalid"></i>
+                  <i class="fas fa-asterisk text-warning ml-2" *ngIf="form.controls['name'].pristine && submited"></i>
                 </label>
                 <input type="text" class="form-control" formControlName="name"/>
               </div>
@@ -25,6 +26,7 @@
                   <b>Seu email</b>
                   <i class="fas fa-check-circle text-primary ml-2" *ngIf="form.controls['email'].dirty && form.controls['email'].valid"></i>
                   <i class="fas fa-exclamation-circle text-warning ml-2" *ngIf="form.controls['email'].dirty && form.controls['email'].invalid"></i>
+                  <i class="fas fa-asterisk text-warning ml-2" *ngIf="form.controls['email'].pristine && submited"></i>
                 </label>
                 <input type="email" class="form-control" formControlName="email"/>
               </div>
@@ -35,6 +37,7 @@
                   <b>Senha</b>
                   <i class="fas fa-check-circle text-primary ml-2" *ngIf="form.controls['password'].dirty && form.controls['password'].valid"></i>
                   <i class="fas fa-exclamation-circle text-warning ml-2" *ngIf="form.controls['password'].dirty && form.controls['password'].invalid"></i>
+                  <i class="fas fa-asterisk text-warning ml-2" *ngIf="form.controls['password'].pristine && submited"></i>
                 </label>
                 <input type="password" class="form-control" formControlName="password"/>
               </div>
@@ -45,6 +48,7 @@
                   <b>Confirme a senha</b>
                   <i class="fas fa-check-circle text-primary ml-2" *ngIf="form.controls['confirmPass'].dirty && form.controls['confirmPass'].valid"></i>
                   <i class="fas fa-exclamation-circle text-warning ml-2" *ngIf="form.controls['confirmPass'].dirty && form.controls['confirmPass'].invalid"></i>
+                  <i class="fas fa-asterisk text-warning ml-2" *ngIf="form.controls['confirmPass'].pristine && submited"></i>
                 </label>
                 <input type="email" class="form-control" formControlName="confirmPass"/>
               </div>

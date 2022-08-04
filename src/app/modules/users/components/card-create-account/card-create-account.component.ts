@@ -1,46 +1,63 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ToastrService } from "ngx-toastr";
-import { UsersService } from "../../shared/services/users.service";
-import { User } from "../../shared/types/user.interface";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { UsersService } from '../../shared/services/users.service';
+import { User } from '../../shared/types/user.interface';
 
 @Component({
-  selector: "card-create-account",
-  templateUrl: "./card-create-account.component.html",
-  styleUrls: ["./card-create-account.component.css"],
+  selector: 'card-create-account',
+  templateUrl: './card-create-account.component.html',
+  styleUrls: ['./card-create-account.component.css'],
 })
 export class CardCreateAccountComponent implements OnInit {
   isLoading: boolean = false;
   form: FormGroup;
   user: User;
 
-  constructor(private usersService: UsersService, private fb: FormBuilder, private toastrService: ToastrService) {}
+  submited: boolean = false;
+
+  constructor(
+    private usersService: UsersService,
+    private fb: FormBuilder,
+    private toastrService: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
-    this.toastrService.success('Sucesso', 'toastr funcionando')
   }
 
   initForm() {
     this.form = this.fb.group({
-      name: ["", Validators.required],
-      email: ["", Validators.compose([Validators.required, Validators.email])],
-      password: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
-      confirmPass: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
+      name: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(6)]),
+      ],
+      confirmPass: [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(6)]),
+      ],
     });
   }
 
   validateForm() {
-    if (this.form.invalid) {
+    if (!this.form.invalid) {
+      this.submited = false;
+      this.user = {
+        name: this.form.controls['name'].value,
+        email: this.form.controls['email'].value,
+        password: this.form.controls['password'].value,
+      };
+      this.createAccount();
     }
 
-    this.user = {
-      name: this.form.controls["name"].value,
-      email: this.form.controls["email"].value,
-      password: this.form.controls["password"].value,
-    };
-    console.log(this.user);
-    
+    if(this.form.invalid) {
+      this.toastrService.error('Formulário possui erros', 'Error');
+      this.submited = true;
+    }
   }
 
   createAccount() {
@@ -50,6 +67,8 @@ export class CardCreateAccountComponent implements OnInit {
       .subscribe((data: any) => {})
       .add(() => {
         this.isLoading = false;
+        this.toastrService.success('Conta criada com sucesso!', 'Sucesso')
+        this.router.navigate(['/login'])
       });
   }
 }

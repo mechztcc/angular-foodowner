@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UsersService } from '../../shared/services/users.service';
+import { Auth } from '../../shared/types/auth.interface';
 import { Login } from '../../shared/types/login.interface';
 import { User } from '../../shared/types/user.interface';
 
@@ -59,12 +60,17 @@ export class CardLoginComponent implements OnInit {
     this.isLoading = true;
     this.usersService
       .login(this.login)
-      .subscribe((data: any) => {
-        console.log(data);
+      .subscribe((data: Auth) => {
         this.toastrService.success('Logado com sucesso!', 'Sucesso');
+        this.saveOnLocalStorage(data);
       })
       .add(() => {
         this.isLoading = false;
       });
+  }
+
+  saveOnLocalStorage(data: Auth) {
+    localStorage.setItem('token', `${data.type} ${data.token}`);
+    localStorage.setItem('token_expires', `${data.expires_at}`);
   }
 }

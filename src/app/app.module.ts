@@ -11,6 +11,8 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
 
 import { CoreModule } from "./modules/core/core.module";
 import { UsersModule } from "./modules/users/users.module";
+import { ToastrModule } from "ngx-toastr";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { UsersModule } from "./modules/users/users.module";
     UsersModule,
     CoreModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

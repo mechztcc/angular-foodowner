@@ -1,7 +1,7 @@
 
 -- Users --
-[ ] Create account
-[ ] Login
+[X] Create account
+[X] Login
 
 -- Stores --
 [ ] Create Store

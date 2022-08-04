@@ -1,2 +1,11 @@
-<router-outlet></router-outlet>
-<footer></footer>
+<ng-container *ngIf="hasToken()">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <footer></footer>
+</ng-container>
+
+
+<ng-container *ngIf="!hasToken()">
+  <router-outlet></router-outlet>
+  <footer></footer>
+</ng-container>

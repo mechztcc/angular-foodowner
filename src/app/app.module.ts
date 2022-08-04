@@ -14,6 +14,8 @@ import { UsersModule } from './modules/users/users.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modules/home/home.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorsInterceptor } from './modules/core/interceptors/http-errors.interceptor';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, FooterComponent],
@@ -31,7 +33,11 @@ import { HomeModule } from './modules/home/home.module';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpErrorsInterceptor,
+    multi: true,
+  },],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

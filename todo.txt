@@ -8,3 +8,9 @@
 
 -- Address --
 [ ] Create Address
+
+
+-- Core --
+[X] Interceptor to handle errors
+[ ] Intercetor to set access token
+[ ] Route guards to validate access token

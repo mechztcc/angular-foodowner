@@ -63,6 +63,7 @@ export class CardLoginComponent implements OnInit {
       .subscribe((data: Auth) => {
         this.toastrService.success('Logado com sucesso!', 'Sucesso');
         this.saveOnLocalStorage(data);
+        this.router.navigate([''])
       })
       .add(() => {
         this.isLoading = false;

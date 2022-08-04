@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modules/home/home.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorsInterceptor } from './modules/core/interceptors/http-errors.interceptor';
+import { AuthGuardGuard } from './modules/core/guards/auth-guard.guard';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, FooterComponent],
@@ -33,11 +34,14 @@ import { HttpErrorsInterceptor } from './modules/core/interceptors/http-errors.i
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: HttpErrorsInterceptor,
-    multi: true,
-  },],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorsInterceptor,
+      multi: true,
+    },
+    AuthGuardGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

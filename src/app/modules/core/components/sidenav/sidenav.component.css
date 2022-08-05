@@ -1,0 +1,27 @@
+nav {
+  position: fixed;
+  width: 15%;
+  height: 100%;
+}
+ul {
+  text-decoration: none;
+  list-style: none;
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li {
+    margin-left: 0;
+    border-top: 1px solid white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+li:hover {
+    background-color: white;
+}
+

@@ -1,1 +1,23 @@
-<p>sidenav works!</p>
+<nav class="d-flex flex-column bg-primary text-white shadow-lg text-center">
+  <h3 (mouseenter)="toggleSide()">
+    <i class="fas fa-hat-cowboy-side text-white p-4"></i>
+  </h3>
+  <ul>
+    <li class="p-3">
+      <i class="fas fa-home mx-2"></i>
+      <a href="#">Home</a>
+    </li>
+    <li class="p-3">
+      <i class="fas fa-store mx-2"></i>
+      <a href="#">Lojas</a>
+    </li>
+    <li class="p-3">
+      <i class="fas fa-book mx-2"></i>
+      <a href="#">Categorias</a>
+    </li>
+    <li class="p-3">
+      <i class="fas fa-hamburger mx-2"></i>
+      <a href="#">Produtos</a>
+    </li>
+  </ul>
+</nav>

@@ -9,14 +9,14 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 
-import { CoreModule } from './modules/core/core.module';
+import { CoreModule } from './core/core.module';
 import { UsersModule } from './modules/users/users.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modules/home/home.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpErrorsInterceptor } from './modules/core/interceptors/http-errors.interceptor';
-import { AuthGuardGuard } from './modules/core/guards/auth-guard.guard';
+import { HttpErrorsInterceptor } from './core/interceptors/http-errors.interceptor';
+import { AuthGuardGuard } from './core/guards/auth-guard.guard';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, FooterComponent],

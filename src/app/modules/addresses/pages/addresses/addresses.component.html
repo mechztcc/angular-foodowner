@@ -1,1 +1,50 @@
-<p>addresses works!</p>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card my-3">
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="validateForm()">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="CEP">Cep:</label>
+                <input formControlName="zip" type="cep" class="form-control" placeholder="CEP">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="city">Cidade:</label>
+                <input formControlName="city" type="city" class="form-control" placeholder="Cidade">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="number">Número:</label>
+                <input formControlName="number" type="text" class="form-control" placeholder="numero">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="rua">Rua:</label>
+                <input formControlName="street" type="text" class="form-control" placeholder="Rua">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="complement">Complemento:</label>
+                <input formControlName="complement" type="text" class="form-control" placeholder="Complemento">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="state">Estado:</label>
+                <input formControlName="state" type="text" class="form-control" placeholder="Estado">
+              </div>
+            </div>
+          </div>
+            <button type="submit" class="btn btn-sm btn-primary">Confirmar</button>
+            <button class="btn btn-sm btn-danger">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

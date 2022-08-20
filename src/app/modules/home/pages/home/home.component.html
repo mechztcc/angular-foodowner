@@ -2,8 +2,32 @@
   <div class="row my-2">
     <div class="col-md-8 offset-md-2">
       <div class="alert alert-warning text-center" role="alert">
-        <strong>Você não possui endereço cadatrado!</strong> 
+        <strong>Você não possui endereço cadatrado!</strong>
         <a href="#/addresses" class="text-danger mx-2">clique aqui</a>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="address.length > 0">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <span>Cep:{{ address[0].zip }}</span>
+        </div>
+        <div class="col-md-4">
+          <span>Rua:{{ address[0].street }}</span>
+        </div>
+        <div class="col-md-4">
+          <span>Número:{{ address[0].number }}</span>
+        </div>
+        <div class="col-md-4">
+          <span>Estado:{{ address[0].state }}</span>
+        </div>
+        <div class="col-md-4">
+          <span>Complemento:{{ address[0].complement }}</span>
+        </div>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AddressesService } from '../../shared/services/addresses.service';
 
 @Component({
   selector: 'app-addresses',
@@ -7,26 +7,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./addresses.component.css'],
 })
 export class AddressesComponent implements OnInit {
-  form: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  address: any = [];
+  constructor(private addressesService: AddressesService) {}
 
   ngOnInit(): void {
-    this.initForm();
+    this.findAddresses();
   }
 
-  initForm() {
-    this.form = this.fb.group({
-      zip: ['', Validators.required],
-      city: ['', Validators.required],
-      number: ['', Validators.required],
-      state: ['', Validators.required],
-      complement: ['', Validators.required],
-      street: ['', Validators.required],
+  findAddresses() {
+    this.addressesService.findAddresByLoggedUser().subscribe((data: any) => {
+      this.address = data;
     });
-  }
-
-  validateForm() {
-    console.log(this.form);
-    
   }
 }

@@ -17,6 +17,7 @@ import { HomeModule } from './modules/home/home.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorsInterceptor } from './core/interceptors/http-errors.interceptor';
 import { AuthGuardGuard } from './core/guards/auth-guard.guard';
+import { HttpTokenHandlerInterceptor } from './core/interceptors/http-token-handler.interceptor';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, FooterComponent],
@@ -38,6 +39,11 @@ import { AuthGuardGuard } from './core/guards/auth-guard.guard';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorsInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpTokenHandlerInterceptor,
       multi: true,
     },
     AuthGuardGuard,

@@ -7,7 +7,7 @@ import { AddressesService } from 'src/app/modules/stores/shared/services/address
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  address: any;
+  address: any[] = [];
   constructor(private addressesService: AddressesService) {}
 
   ngOnInit(): void {

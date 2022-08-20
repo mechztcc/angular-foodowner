@@ -12,7 +12,7 @@ const url = `${api}/addresses`;
 export class AddressesService {
   constructor(private http: HttpClient) {}
 
-  index(): Observable<any> {
+  findByLoggedUser(): Observable<any> {
     return this.http.get<any>(`${url}`);
   }
 }
